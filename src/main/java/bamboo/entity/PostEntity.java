@@ -12,12 +12,15 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "comment")
-public class Comment {
+@Table(name = "post")
+public class PostEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "comment_no")
-    private Long commentNo;
+    @Column(name = "post_no")
+    private Long postNo;
+
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "content")
     private String content;
@@ -26,10 +29,16 @@ public class Comment {
     @CreatedDate
     private LocalDateTime createdAt;
 
+    @Column(name = "category")
+    private int category;
+
     @Column(name = "writer")
     private String writer;
 
-    @Column(name = "writer_img")
-    private String writer_img;
+    @Column(name = "views")
+    private int views;
+
+    @Column(name = "status")
+    private int status;
 
 }
